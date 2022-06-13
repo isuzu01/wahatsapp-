@@ -1,55 +1,27 @@
 
-const contactData = [
-  {
-    name: "Carolina del Norte",
-    chat: "hola juanita"
-  },
-  {
-    name: "Paoula",
-    chat: "Lorem Ipsum is simply dummy text of the printing and typesetting industr"
-  },
-  {
-    name: "Anaztacio",
-    chat: "hContrary to popular belief, Lorem Ipsum is not simply random text. It has roots"
-  },
-  {
-    name: "Juanita",
-    chat: "Contrary to popular belief, Lorem Ipsum is not simply random text"
-  },
-  {
-    name: "la vecina",
-    chat: " to make a type specimen book"
-  },
-  {
-    name: "Paoula",
-    chat: "Lorem Ipsum is simply dummy text of the printing and typesetting industr"
-  },
-  {
-    name: "Anaztacio",
-    chat: "hContrary to popular belief, Lorem Ipsum is not simply random text. It has roots"
-  },
-  {
-    name: "Juanita",
-    chat: "Contrary to popular belief, Lorem Ipsum is not simply random text"
-  },
-  {
-    name: "la vecina",
-    chat: " to make a type specimen book"
-  }
-  
-]
+
+function initData() {
+  fetch('./data.json')
+    .then(response => {
+        return response.json();
+    })
+    .then(({results}) => {
+      addContacts(results);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+}
 
 
-
-
-
-function renderContact({name, chat}) {
+// reemplazando el nombre y el contenido del mensaje (array)
+function renderContact({name, last_message, user_picture}) {
   let templateContact = 
-        `<div class="contacto">
+        `<div class="contacto" tabindex="0">
            <!-- foto del contact -->
           <div class="picture">
             <div class="contacto-foto">
-              <img class="foto" src="img/segundodeltercerymas.png"  alt="">
+              <img class="foto" src="${user_picture}"  alt="">
             </div>            
           </div>
           <!-- seccion que contieneel chat  -->
@@ -61,7 +33,7 @@ function renderContact({name, chat}) {
             </div>
 
             <div class="abajo">
-              <div class="chat">${chat}</div>
+              <div class="chat">${last_message}</div>
               <i class="material-icons mas">expand_more</i>
             </div>  
 
@@ -72,35 +44,19 @@ function renderContact({name, chat}) {
         return templateContact;
 }
 
-function addContacts() {
+// reemplazando los datos en el html
+function addContacts(contactData) {
   const contactList = document.querySelector(".lista-contactos");
-
+  
   contactData.forEach(contact => {
     let render = renderContact({...contact});
     contactList.innerHTML = contactList.innerHTML + render;
     
   });
   
+  stylingInit()
 }
 
-/* function copyContact() {
-
-  const contactList = document.querySelector(".lista-contactos");
-  const contact = document.querySelector(".contacto");
-
-
-  for (i=0; i < 20; i++) {
-
-    // const clonContact= contact.cloneNode(true);
-    contactList.appendChild(contact);
-    console.log(contact.attributes);
-  }
-
-  const nameNode = contact.querySelector(".name span");
-  nameNode.textContent = "Wilder"
-}*/
-
 (function main() {
-  addContacts()
-//  copyContact()
+  initData()
 })() 

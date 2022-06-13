@@ -49,7 +49,8 @@
 
       <!-- lista de contactos -->
       <div class="lista-contactos">
-        <div class="contacto">
+
+        <div class="contacto" tabindex="0">
           <!-- foto del contact -->
           <div class="picture">
             <div class="contacto-foto">
@@ -60,33 +61,105 @@
           <div class="ver-contacto">
 
             <div class="arriba">
-              <div class="name"><span>izuzu</span></div>
+              <div class="name">
+                <span>izuzu</span>
+              </div>
               <div class="date">ayer</div>
             </div>
 
             <div class="abajo">
-              <div class="chat">hola como estas</div>
+              <div class="chat">hola como estas?</div>
               <i class="material-icons mas">expand_more</i>
             </div>  
 
           </div>
-
         </div>
+
       </div>
     </div>
     <!-- container right -->
     <div class="container right">
+
       <div class="messages">
         <header class="header header-right">          
-          <div class="contacto-foto">
+          <div class="contact-foto">
             <img class="foto foto-right" src="img/segundodeltercerymas.png" alt="">
           </div>
+          <div class="name-conected">
+            <div class="name">
+              <span>izuzu</span>
+            </div>
+            <div class="conected-time">
+              <span>en linea</span>
+            </div>
+          </div>
+
+          <div class="perfil-settings">
+
+            <div class="header-icon">
+              <i class="material-icons">search</i>
+            </div>
+            <div class="header-icon">
+              <i class="material-icons">more_vert</i>
+            </div>
+            
+          </div>          
         </header>
+
+        <div class="message-container">
+          <div class="contact-messages">  
+            <div class="caja">
+
+              <div class="message-in">
+                <div class="message message-left">
+                  <div class="icon-left"></div> 
+                  <div class="text text-left">
+                    <span>hola que tal, bien y tued do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="message-out">
+                <div class="icon-right"></div> 
+                <div class="message message-right">
+                  <div class="text text-right">
+                    <span>hola como estas?</span>
+                  </div>
+                </div>
+              </div>
+
+            </div> 
+          </div> 
+        </div>
+               
+        
+        <!-- agregando footer donde sera en envio del mensaje -->
+        <footer>
+          <div class="send-message-bar">
+            <div class="footer-icon">
+              <div class="icon-emoji-file">
+                <i class="material-icons emoji">mood</i>
+              </div>
+              <div class="icon-emoji-file">
+                <i class="material-icons file">attach_file</i>
+              </div>
+              
+            </div>
+            
+            <div class="imput-caja imput-caja-footer">
+              <input class="input-message" type="text" placeholder="Escribe un mensaje aqui">
+            </div>
+            <div class="footer-icon">
+              <i class="material-icons voice">keyboard_voice</i>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   </div>
   
-
+  <script src="styling.js"></script>
   <script src="main.js"></script>
+  
 </body>
 </html>
